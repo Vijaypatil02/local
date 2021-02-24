@@ -1,0 +1,19 @@
+<div class="container-fluid col-md-9">
+  <h2>Registration Form</h2>
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" class="form-control" formControlName="userName">
+      <label>Password</label>
+      <input type="password" class="form-control" formControlName="password">
+    <label>City</label>
+    <input type="text" class="form-control" formControlName="city">
+    <label>State</label>
+    <input type="text" class="form-control" formControlName="state">
+    <label>Pin Code</label>
+    <input type="text" class="form-control" formControlName="pincode">
+    <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+
+  </form>
+</div>

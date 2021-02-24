@@ -1,0 +1,76 @@
+<div class="usercontact-list">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>UserName</th>
+      <th>Password</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Pincode</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of user let ndx = index;" >
+      <td>{{ndx +1}}</td>
+      <td>{{item.userName}}</td>
+      <td>{{item.password}}</td>
+      <td>{{item.city}}</td>
+      <td>{{item.state}}</td>
+      <td>{{item.pincode}}</td>
+      <td>
+        <!--        <button class=" btn btn-primary" routerLink="/update" >Edit</button>-->
+        <button type="button" class="btn btn-primary" data-toggle="modal" (click)="update(ndx)" data-target="#myModal">Edit</button>
+
+      </td>
+      <td>
+        <button class="btn btn-danger ml-2 "  (click)="delete(ndx)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- Trigger the modal with a button -->
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content col-md-8">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <form>
+
+        <!--  <form>-->
+        <h2>Edit</h2>
+        <div >
+          <label>Username</label>
+          <input type="text" class="form-control" name="userName" value="{{current.userName}}" >
+
+          <label>Password</label>
+          <input type="password" class="form-control" name="password" value="{{current.password}} ">
+
+            <label>City</label>
+            <input type="text"  class="form-control"  name="city" value="{{current.city}}">
+
+            <label>State</label>
+            <input type="text" class="form-control" name="state" value="{{current.state}}">
+
+            <label>Pin Code</label>
+            <input type="text" class="form-control" name="pincode" value="{{current.pincode}}" >
+
+        </div>
+      </form>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="edit()">Update</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
