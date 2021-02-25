@@ -14,6 +14,13 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     RegisterComponent,
     ListUserComponent
   ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        NgbModule,
+        ReactiveFormsModule,
+        FormsModule
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

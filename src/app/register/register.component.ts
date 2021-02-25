@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
     pincode: ['']
   });
    user: any = {};
-  constructor(private fb: FormBuilder,private authservice: AuthserviceService) { }
+  constructor(private fb: FormBuilder, private authservice: AuthserviceService) { }
 
   ngOnInit(): void {
   }
