@@ -50,19 +50,19 @@
         <h2>Edit</h2>
         <div >
           <label>Username</label>
-          <input type="text" class="form-control" name="userName" value="{{current.userName}}" >
+          <input type="text" class="form-control" name="userName" [(ngModel)]="current.userName" value="{{current.userName}}" >
 
           <label>Password</label>
-          <input type="password" class="form-control" name="password" value="{{current.password}} ">
+          <input type="password" class="form-control" name="password" [(ngModel)]="current.password" value="{{current.password}} ">
 
             <label>City</label>
-            <input type="text"  class="form-control"  name="city" value="{{current.city}}">
+            <input type="text"  class="form-control"  name="city" [(ngModel)]="current.city" value="{{current.city}}">
 
             <label>State</label>
-            <input type="text" class="form-control" name="state" value="{{current.state}}">
+            <input type="text" class="form-control" name="state" [(ngModel)]="current.state" value="{{current.state}}">
 
             <label>Pin Code</label>
-            <input type="text" class="form-control" name="pincode" value="{{current.pincode}}" >
+            <input type="text" class="form-control" name="pincode" [(ngModel)]="current.pincode" value="{{current.pincode}}" >
 
         </div>
       </form>

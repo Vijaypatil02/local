@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthserviceService} from '../authservice.service';
 
 @Component({
   selector: 'app-list-user',
@@ -10,8 +11,7 @@ export class ListUserComponent implements OnInit {
   current: any = {};
   data: any = {};
 
-  constructor() {
-  }
+  constructor(private authservice: AuthserviceService) {}
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('Users') as string);
@@ -19,16 +19,9 @@ export class ListUserComponent implements OnInit {
 
   // @ts-ignore
   // tslint:disable-next-line:typedef
-  delete(index) {
-    if (index) {
-      console.log(index);
-      this.user.splice(index);
+  delete(index){
+      this.user.splice(index, 1);
       localStorage.setItem('Users', JSON.stringify(this.user).toString());
-    } else {
-      this.user = localStorage.removeItem('Users');
-    }
-    // @ts-ignore
-
   }
 
   // tslint:disable-next-line:typedef
@@ -36,19 +29,17 @@ export class ListUserComponent implements OnInit {
   // tslint:disable-next-line:typedef
   update(index) {
     this.data = JSON.parse(localStorage.getItem('Users') as string);
-    console.log(this.data);
 
     // tslint:disable-next-line:no-conditional-assignment
     if (index !== -1) {
 
       const formData = this.data[index];
       this.current = formData;
-      console.log(formData);
 
     }
   }
   // tslint:disable-next-line:typedef
   edit(){
-    // this.user =  localStorage.setItem('Users', JSON.stringify(this.current));
+    this.current = localStorage.setItem('Users', JSON.stringify(this.data));
   }
 }
