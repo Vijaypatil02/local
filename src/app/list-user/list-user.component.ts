@@ -9,24 +9,29 @@ export class ListUserComponent implements OnInit {
   user: any = {};
   current: any = {};
   data: any = {};
-
+  dele: any = {};
   constructor() {
   }
 
   ngOnInit(): void {
+    this.updateUsers(); // this.user = JSON.parse(localStorage.getItem('Users') as string);
+  }
+
+  updateUsers() : void {
     this.user = JSON.parse(localStorage.getItem('Users') as string);
   }
 
   // @ts-ignore
   // tslint:disable-next-line:typedef
   delete(index) {
-    if (index) {
-      console.log(index);
-      this.user.splice(index);
-      localStorage.setItem('Users', JSON.stringify(this.user).toString());
-    } else {
-      this.user = localStorage.removeItem('Users');
-    }
+    this.dele = this.user;
+    this.dele.splice(index, 1);
+    localStorage.setItem('Users', JSON.stringify(this.user).toString());
+
+    // } else {
+    //   alert(0)
+    //   this.user = localStorage.removeItem('Users');
+    // }
     // @ts-ignore
 
   }
@@ -36,7 +41,7 @@ export class ListUserComponent implements OnInit {
   // tslint:disable-next-line:typedef
   update(index) {
     this.data = JSON.parse(localStorage.getItem('Users') as string);
-    console.log(this.data);
+    // console.log(this.data);
 
     // tslint:disable-next-line:no-conditional-assignment
     if (index !== -1) {
@@ -48,7 +53,19 @@ export class ListUserComponent implements OnInit {
     }
   }
   // tslint:disable-next-line:typedef
-  edit(){
-    // this.user =  localStorage.setItem('Users', JSON.stringify(this.current));
+  // @ts-ignore
+  // tslint:disable-next-line:typedef
+  edit() {
+    // debugger
+    // for (let i = 0; i < this.current.length; i++) {
+    //   if(this.current[i].id === newItem.id){
+    //     this.current[i] = newItem;
+    //   }
+    // }
+
+    console.log(this.current, 'currnet edit method');
+    // this.current =
+      localStorage.setItem('Users', JSON.stringify(this.data));
+    this.updateUsers();
   }
 }

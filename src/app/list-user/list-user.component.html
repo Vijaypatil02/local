@@ -50,7 +50,7 @@
         <h2>Edit</h2>
         <div >
           <label>Username</label>
-          <input type="text" class="form-control" name="userName" value="{{current.userName}}" >
+          <input type="text" class="form-control" name="userName" [(ngModel)]="current.userName" value="{{current.userName}}" >
 
           <label>Password</label>
           <input type="password" class="form-control" name="password" value="{{current.password}} ">
